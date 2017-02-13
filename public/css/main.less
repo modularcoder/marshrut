@@ -1,0 +1,409 @@
+/**********************************************
+*					Configs
+***********************************************/
+
+@sidebar-width: 280px;
+@desktop:   ~"screen and (min-width : 768px)";
+@mobile:    ~"screen and (max-width: 768)";
+
+
+html, body {
+	height: 100%;
+}
+
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+/**********************************************
+*					Header
+***********************************************/
+
+.navbar-brand {
+	line-height: 50px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+header {
+
+	.nav.visible-xs {
+		margin: 0 0 0 10px;
+
+		li {
+			display: inline-block;
+		}
+	}
+
+	.navbar {
+		box-sizing:border-box;
+		height: 50px;
+	}
+}
+
+
+/**********************************************
+*					Sidebar
+***********************************************/
+
+.sidebar {
+
+	@media @desktop { 
+		width: @sidebar-width; 
+		position:fixed;
+		height: 100%;
+		border-right: 1px solid #ccc;
+	} 
+	@media @mobile { 
+		width: 100%; 
+	} 
+	
+	background-color: #F9F9F9;
+	
+	/*box-shadow: 0 0 3px 1px #DFDFDF;*/
+
+	blockquote {
+		/*border-left: 5px solid #8A8A8A;*/
+		border-left: 5px solid #BCB8E9;
+		background: #E2E2E2;
+		border-radius: 5px;
+	}
+	.title {
+		background: #E7E7E7;
+		color: #696969;
+		padding: 10px;
+		font-size: 17px;
+		margin: 15px 0;
+		text-align: center;
+
+		.border-radius(5px);
+	}
+
+	.routeEditorHeader {
+		padding-top: 5px;
+		height: 60px;
+
+		.title {
+			/*display: none;*/
+		}
+
+	}
+
+	.routeWaypointsHeader {
+		padding-top: 5px;
+		height: 60px;
+
+		.btn-group {
+			margin-top: 5px;
+		}
+	}
+
+	.scrollPaneHeader {
+		.title {
+			margin: 0;
+		}
+	}
+
+	.scrollPane {
+
+	}
+
+	.sidebarContainer {
+		padding-top: 60px;
+		padding: 60px 4px 30px 10px;
+	}
+}
+
+.search-form blockquote {
+	margin-bottom: 30px;
+}
+
+.routes .dropdown-menu{
+	max-height: 200px;
+	overflow-y: scroll;
+}
+
+/*******************************************
+*				Admin Sidebar
+*******************************************/
+
+@waypointHeight: 40px;
+@waypoint-drag-area-width: 8px;
+@waypointGridColor: #CECECE;
+
+.sidebar-route-editor {
+	width: 500px;
+}
+
+.waypoints {
+
+	.waypointsContainer {
+		border: 1px solid #ddd;
+		background-color: #fff;
+
+		.waypoint {
+			height: unit(@waypointHeight, px);
+			border-bottom: 1px solid @waypointGridColor;
+			.dragArea {
+				width:8px;
+				height: 39px;
+				line-height: 39px;
+				background: #E6E6E6;
+				cursor: move;
+				float: left;
+				overflow: hidden;
+				span {
+					margin-left: 2px;
+					color: #ccc;
+					font-size: 14px;
+					width:4px;
+					overflow: hidden;
+				}
+			}
+			.dragArea:hover {
+				background: #ccc;
+				span {
+					color: #999;
+				}
+			}
+			.number {
+				line-height: 39px;
+				text-align: center;
+				font-size: 14px;
+				color: #666;
+				float: left;
+				width: 30px;
+				cursor: pointer;
+				border-right: 1px solid @waypointGridColor;
+			}
+			.data {
+				padding: 3px;
+				margin-left: 38px;
+				height: 40px;
+				margin-right: 20px;
+
+				form {
+					font-size: 10px;
+					input {
+						width:50px;
+						padding: 1px;
+						font-size: 10px;
+						line-height: 12px;
+						height: 15px;
+					}
+				}
+			}
+			.closeArea {
+				float: right;
+				width: 20px;
+				height: 39px;
+				line-height: 39px;
+				position: relative;
+
+				.closeButton {
+					position: absolute;
+					top: 5px;
+					right: 4px;
+					font-size: 6px;
+					padding: 3px;
+					.border-radius(2px);
+					opacity: 0.4;
+					cursor: pointer;
+				}
+				.closeButton:hover {
+					opacity: 1;
+				}
+			}
+
+			.gradiant (#ffffff, #f8f8f8);
+		}
+
+		.waypoint:hover {
+			.number {
+				.label {
+					background: #428BCA;
+				}
+			}
+		}
+
+		.waypointAdd {
+			line-height: 39px;
+			text-align: center;
+			color: #428BCA;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+		.waypointAdd:hover {
+
+		}
+	}
+}
+
+#waypointsBack {
+	display: none;
+}
+
+#routeEditorForm {
+	#routeDescription {
+		height: 220px;
+	}
+	#routeNotes {
+		height: 100px;
+	}
+}
+
+.waypointAddButton {
+	width: 100%;
+	margin-top: 5px;
+}
+
+/**********************************************
+*					Content
+***********************************************/
+
+.well hr {
+	border-top: 1px solid #D6D6D6;
+}
+
+
+.content {
+	@media @desktop { 
+		margin-left: @sidebar-width;
+	}
+	padding: 80px 20px 60px 20px; 
+}
+
+.routes-map {
+	margin-left: 500px;
+}
+
+
+.routes-table {
+	.description {
+		font-size: 13px;
+		color: #666;
+		line-height: 25px;
+	}
+
+	.title {
+		margin-top: 3px;
+		margin-bottom: 10px;
+		font-size: 18px;
+	}
+
+}
+
+#map-content {
+
+	padding: 50px 0 0 0;
+
+	#map-canvas {
+		padding: 0;
+	}
+}
+
+
+
+
+/**********************************************
+*			Mixins and custom classes
+***********************************************/
+
+
+.gradiant (@color1: #ffffff, @color2: #ffffff) {
+	background: @color1;
+	background: -moz-linear-gradient(top,  @color1 0%, @color2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color1), color-stop(100%,@color2));
+	background: -webkit-linear-gradient(top,  @color1 0%,@color2 100%);
+	background: -o-linear-gradient(top,  @color1 0%,@color2 100%);
+	background: -ms-linear-gradient(top,  @color1 0%,@color2 100%);
+	background: linear-gradient(to bottom,  @color1 0%,@color2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color1', endColorstr='@color2',GradientType=0 );
+}
+
+.border-radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+@font-face {
+	font-family: 'arnamu';
+	src: url('../web-fonts/arnamu.eot');
+	src: url('../web-fonts/arnamu.eot?#iefix') format('embedded-opentype'),
+		 url('../web-fonts/arnamu.woff') format('woff'),
+		 url('../web-fonts/arnamu.ttf') format('truetype'),
+		 url('../web-fonts/arnamu.svg#ArianAMURegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*:not(.glyphicon) {
+	font-family: arial, 'arnamu', arian amu !important;
+}
+
+.glyphicon {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	font-family: 'Glyphicons Halflings' !important;
+	-webkit-font-smoothing: antialiased;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+}
+
+
+.tr {
+	text-align: right;
+}
+
+.tl {
+	text-align: left;
+}
+
+.tc {
+	text-align: center;
+}
+
+.red {
+	color: #D9534F;
+}
+
+.modal-body {
+	border-top: 1px solid #E5E5E5;
+}
+
+.modal-header {
+	border: none;
+
+	.closeMsg {
+		margin-top: -2px;
+		float: right;
+		font-size: 21px;
+		font-weight: bold;
+		line-height: 1;
+		color: #000;
+		text-shadow: 0 1px 0 #FFF;
+		opacity: 0.2;
+
+		padding: 0;
+		cursor: pointer;
+		background: rgba(0, 0, 0, 0);
+		border: 0;
+		/*-webkit-appearance: none;*/
+
+	}
+}
+
+.closeMsg {
+
+}

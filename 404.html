@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			var back = '<button onclick="history.back();">' + 'Հետ գնալ<br />Go back<br />Назад' + '</button>';
+			var home = '<button onclick="window.location.href=&#39;/&#39;">' + 'Գլխավոր էջ<br />Main page<br />Главная страница' + '</button>';
+			function run() {
+				if (history.length > 1) {
+					document.getElementById('back').innerHTML = back;
+				} else {
+					document.getElementById('home').innerHTML = home;
+				};
+			}
+			window.onload = run;
+		</script>
+	</head>
+	
+	<body>
+		<center>
+			<h2>Ձեր ուզած էջը չկա: Դարդ մի արեք՝ ստեղ գրեք. <a href="mailto:marshrutinfo@gmail.com">marshrutinfo@gmail.com</a>:<br/>The page you want to see is disappeared (or has never been here). DON' PANIC - we have <s>cookies</s> mail: <a href="mailto:marshrutinfo@gmail.com">marshrutinfo@gmail.com</a>.</h2>
+			<img src="/public/img/404.jpg" />
+			<div id="back"></div>
+			<div id="home"></div>
+		</center>
+	</body>
+</html>
